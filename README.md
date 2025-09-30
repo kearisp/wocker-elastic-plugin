@@ -1,2 +1,40 @@
-# wocker-elastic-plugin
-Elastic search plugin for wocker
+# @wocker/elastic-plugin
+
+###### Docker workspace for web projects
+
+[![npm version](https://img.shields.io/npm/v/@wocker/elastic-plugin.svg)](https://www.npmjs.com/package/@wocker/elastic-plugin)
+[![Publish](https://github.com/kearisp/wocker-elastic-plugin/actions/workflows/publish-latest.yml/badge.svg?event=release)](https://github.com/kearisp/wocker-elastic-plugin/actions/workflows/publish-latest.yml)
+[![License](https://img.shields.io/npm/l/@wocker/elastic-plugin)](https://github.com/kearisp/wocker-elastic-plugin/blob/master/LICENSE)
+
+[![npm total downloads](https://img.shields.io/npm/dt/@wocker/elastic-plugin.svg)](https://www.npmjs.com/package/@wocker/elastic-plugin)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/@wocker/elastic-plugin)](https://bundlephobia.com/package/@wocker/elastic-plugin)
+
+## Installation
+
+**Note:** It is recommended to install Wocker globally to ensure accessibility from any directory in your terminal.
+
+```shell
+npm i -g @wocker/ws
+```
+
+```shell
+ws plugin:install elastic
+```
+
+
+### Completion
+
+Wocker comes with shell completion support to enhance your development workflow. To enable shell completion, run the following command:
+
+```bash
+source <(ws completion script)
+```
+
+This will enable tab completion for `ws` commands, providing a more convenient and efficient way to interact with the tool.
+
+
+## Documentation
+
+Wocker is a powerful tool for managing your web project's Docker workspace. It provides a convenient and efficient way to set up and manage your Docker containers.
+
+For more information and detailed usage, please refer to the [documentation](https://kearisp.github.io/wocker).

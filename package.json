@@ -1,6 +1,7 @@
 {
     "name": "@wocker/elastic-plugin",
-    "version": "0.0.1",
+    "type": "commonjs",
+    "version": "0.0.2",
     "author": "Kris Papercut <krispcut@gmail.com>",
     "description": "Elastic search plugin for wocker",
     "license": "MIT",

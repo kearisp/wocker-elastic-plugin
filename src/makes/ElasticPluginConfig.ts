@@ -1,24 +1,41 @@
-import {FileSystem} from "@wocker/core";
+import {PluginConfig} from "@wocker/core";
 import {Service, ServiceProps} from "./Service";
 
+
+export type AdminConfig = {
+    enabled: boolean;
+    hostname: string;
+};
 
 export type ConfigProps = {
     default?: string;
     services?: ServiceProps[];
+    admin?: Partial<AdminConfig>;
 };
 
-export abstract class Config {
+export class ElasticPluginConfig extends PluginConfig {
     public default?: string;
     public services: Service[];
+    public admin: AdminConfig;
 
-    protected constructor(props: ConfigProps) {
+    public constructor(data: ConfigProps) {
+        super(data);
+
         const {
             default: defaultService,
-            services = []
-        } = props;
+            services = [],
+            admin: {
+                enabled: adminEnabled = false,
+                hostname: adminHostname = "elastic-admin.workspace"
+            } = {}
+        } = data;
 
         this.default = defaultService;
         this.services = services.map((sp) => new Service(sp));
+        this.admin = {
+            enabled: adminEnabled,
+            hostname: adminHostname
+        };
     }
 
     public hasService(name: string): boolean {
@@ -94,26 +111,13 @@ export abstract class Config {
         }
     }
 
-    public abstract save(): void;
-
     public toObject(): ConfigProps {
         return {
             default: this.default,
             services: this.services.length > 0
                 ? this.services.map((service) => service.toObject())
-                : undefined
+                : undefined,
+            admin: this.admin
         };
-    }
-
-    public static make(fs: FileSystem): Config {
-        const props: ConfigProps = fs.exists("config.json")
-            ? fs.readJSON("config.json")
-            : {};
-
-        return new class extends Config {
-            public save(): void {
-                fs.writeJSON("config.json", this.toObject());
-            }
-        }(props);
     }
 }

@@ -2,23 +2,31 @@ export type ServiceProps = {
     name: string;
     image: string;
     containerPort?: number;
+    username?: string;
+    password?: string;
 };
 
 export class Service {
     public name: string;
     public image: string;
     public containerPort?: number;
+    public username?: string;
+    public password?: string;
 
     public constructor(props: ServiceProps) {
         const {
             name,
             image,
-            containerPort
+            containerPort,
+            username,
+            password
         } = props;
 
         this.name = name;
         this.image = image;
         this.containerPort = containerPort;
+        this.username = username;
+        this.password = password;
     }
 
     public get containerName(): string {
@@ -43,7 +51,9 @@ export class Service {
         return {
             name: this.name,
             image: this.image,
-            containerPort: this.containerPort
+            containerPort: this.containerPort,
+            username: this.username,
+            password: this.password
         };
     }
 }

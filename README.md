@@ -8,6 +8,7 @@
 
 [![npm total downloads](https://img.shields.io/npm/dt/@wocker/elastic-plugin.svg)](https://www.npmjs.com/package/@wocker/elastic-plugin)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/@wocker/elastic-plugin)](https://bundlephobia.com/package/@wocker/elastic-plugin)
+![Coverage](https://gist.githubusercontent.com/kearisp/f17f46c6332ea3bb043f27b0bddefa9f/raw/coverage-wocker-elastic-plugin-latest.svg)
 
 ## Installation
 
